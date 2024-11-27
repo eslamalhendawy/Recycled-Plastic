@@ -9,7 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Profile() {
   useEffect(() => {
-    document.title = `Clothey | Profile`;
+    document.title = `Another Chance | Profile`;
     window.scrollTo(0, 0);
   }, []);
   const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
