@@ -15,7 +15,7 @@ import Footer from "./Footer";
 
 function Homepage() {
   useEffect(() => {
-    document.title = `Recycled Plastic`;
+    document.title = `Another Chance`;
     window.scrollTo(0, 0);
   }, []);
 

@@ -196,16 +196,16 @@ function Checkout() {
       <div className="bg-[#f1f1ef] py-6 px-3 md:px-8 xl:px-40 2xl:px-80 md:py-12">
         <div className="bg-white px-8 py-20">
           <div className="container mx-auto px-6">
-            <h1 className="text-center text-[#212529] font-semibold text-5xl xl:text-6xl mb-6">Checkout</h1>
+            <h1 className="text-center text-lightGreen font-semibold text-5xl xl:text-6xl mb-6">Checkout</h1>
           </div>
           <div className="flex flex-col items-center justify-center space-y-3">
             <div className="mb-6">
               <h3 className="text-center text-3xl font-bold mb-3">Delivery Details</h3>
-              <p className="sm:text-lg font-semibold text-[#212529]">Payment Is Made On Delivery</p>
+              <p className="sm:text-lg font-semibold text-blackColor">Payment Is Made On Delivery</p>
             </div>
             <div className="flex flex-col sm:flex-row sm:space-x-6">
               <div className="flex flex-col space-y-2 mb-5 md:w-[288px]">
-                <span className="sm:text-lg font-semibold text-[#212529]">Governate</span>
+                <span className="sm:text-lg font-semibold text-lightGreen">Governate</span>
                 <select onChange={changeGovernate} className="border-[1px] border-[#e6e6e6] focus:outline-none text-[#212529] p-3" name="" id="">
                   {governates.map((governate, index) => {
                     return (
@@ -217,21 +217,21 @@ function Checkout() {
                 </select>
               </div>
               <div className="flex flex-col space-y-2 mb-5 md:w-[288px]">
-                <span className="sm:text-lg font-semibold text-[#212529]">City</span>
+                <span className="sm:text-lg font-semibold text-lightGreen">City</span>
                 <input className="text-lg p-3 focus:outline-none border-[1px] border-[#e6e6e6]" placeholder="City" type="text" onChange={(e) => setAddress_line1(e.target.value)} />
               </div>
             </div>
             <div className="flex flex-col sm:flex-row sm:space-x-6">
               <div className="flex flex-col space-y-2 mb-5 md:w-[288px]">
-                <span className="sm:text-lg font-semibold text-[#212529]">Street Name</span>
+                <span className="sm:text-lg font-semibold text-lightGreen">Street Name</span>
                 <input className="text-lg p-3 focus:outline-none border-[1px] border-[#e6e6e6]" placeholder="Street Name" type="text" onChange={(e) => setAddress_line2(e.target.value)} />
               </div>
               <div className="flex flex-col space-y-2 mb-5 md:w-[288px]">
-                <span className="sm:text-lg font-semibold text-[#212529]">Building Number</span>
+                <span className="sm:text-lg font-semibold text-lightGreen">Building Number</span>
                 <input className="text-lg p-3 focus:outline-none border-[1px] border-[#e6e6e6]" placeholder="Building Number" type="text" onChange={(e) => setBuilding_number(e.target.value)} />
               </div>
             </div>
-            <button onClick={placeOrder} to="/collection" className="mb-6 bg-[#6e7051] hover:bg-[#212529] font-semibold text-center text-white duration-300 px-14 sm:px-20 sm:text-xl py-4">
+            <button onClick={placeOrder} to="/collection" className="mb-6 bg-lightGreen hover:bg-blackColor font-semibold text-center text-white duration-200 px-14 sm:px-20 sm:text-xl py-4">
               Place Order
             </button>
           </div>

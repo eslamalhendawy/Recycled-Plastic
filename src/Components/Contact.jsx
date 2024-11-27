@@ -15,7 +15,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Contact() {
   useEffect(() => {
-    document.title = `Clothey | Contact`;
+    document.title = `Another Chance | Contact`;
     window.scrollTo(0, 0);
   }, []);
 
@@ -51,46 +51,46 @@ function Contact() {
     <>
       <Search />
       <div className="contaner mx-auto px-6 py-12 bg-white">
-        <h1 className="text-center text-[#212529] font-semibold text-5xl xl:text-7xl mb-6">Contact</h1>
+        <h1 className="text-center text-lightGreen font-semibold text-5xl xl:text-7xl mb-6">Contact</h1>
       </div>
       <div className="container mx-auto px-6 md:px-8 xl:px-28 py-12 bg-[#f1f1ef] md:flex justify-center items-center gap-16 mb-6">
         <ul className="text-center mb-16 md:mb-0 flex flex-col md:border-r-[1px] border-[#dddddd]">
           <li className="px-4 pb-8 border-b-2 border-[#e4e6e7] md:flex items-start gap-4 ">
             <p className="">
-              <i className="fa-solid fa-mobile-screen text-[#6e7051] mb-4"></i>
+              <i className="fa-solid fa-mobile-screen text-lightGreen mb-4"></i>
             </p>
             <div className="md:text-left">
-              <h4 className="text-[#212529] text-lg font-semibold mb-2">Products & order</h4>
+              <h4 className="text-lightGreen text-lg font-semibold mb-2">Products & order</h4>
               <p className="text-sm md:text-lg text-[#97a1b1]">(+1) 123-456-7890</p>
               <p className="text-sm md:text-lg text-[#97a1b1]">available 24/7</p>
             </div>
           </li>
           <li className="px-4 py-8  border-b-2 border-[#e4e6e7] md:flex items-start gap-4 ">
             <p className="">
-              <i className="fa-solid fa-circle-info text-[#6e7051] mb-4"></i>
+              <i className="fa-solid fa-circle-info text-lightGreen mb-4"></i>
             </p>
             <div className="md:text-left">
-              <h4 className="text-[#212529] text-lg font-semibold mb-2">Info & enquiries</h4>
+              <h4 className="text-lightGreen text-lg font-semibold mb-2">Info & enquiries</h4>
               <p className="text-sm md:text-lg text-[#97a1b1]">(+1) 123-456-7890</p>
               <p className="text-sm md:text-lg text-[#97a1b1]">available 24/7</p>
             </div>
           </li>
           <li className="px-4 py-8 border-b-2 border-[#e4e6e7] md:flex items-start gap-4 ">
             <p className="">
-              <i className="fa-solid fa-location-dot text-[#6e7051] mb-4"></i>
+              <i className="fa-solid fa-location-dot text-lightGreen mb-4"></i>
             </p>
             <div className="md:text-left">
-              <h4 className="text-[#212529] text-lg font-semibold mb-2">Store locator</h4>
+              <h4 className="text-lightGreen text-lg font-semibold mb-2">Store locator</h4>
               <p className="text-sm md:text-lg text-[#97a1b1]">(+1) 123-456-7890</p>
               <p className="text-sm md:text-lg text-[#97a1b1]">available 24/7</p>
             </div>
           </li>
           <li className="md:text-left px-4 py-8 border-b-2 md:border-none border-[#e4e6e7]">
-            <h4 className="text-[#212529] text-base font-semibold mb-2">STAY IN TOUCH</h4>
+            <h4 className="text-lightGreen text-base font-semibold mb-2">STAY IN TOUCH</h4>
             <p className="">
-              <i className="fa-brands fa-facebook text-[#6e7051] md:text-lg"></i>
-              <i className="fa-brands fa-twitter text-[#6e7051] md:text-lg mx-4"></i>
-              <i className="fa-brands fa-youtube text-[#6e7051] md:text-lg"></i>
+              <i className="fa-brands fa-facebook text-lightGreen md:text-lg"></i>
+              <i className="fa-brands fa-twitter text-lightGreen md:text-lg mx-4"></i>
+              <i className="fa-brands fa-youtube text-lightGreen md:text-lg"></i>
             </p>
           </li>
         </ul>
@@ -107,11 +107,11 @@ function Contact() {
             <span className="text-[#9da9b3]">Comment Or Message</span>
             <textarea value={message} onChange={(e) => setMessage(e.target.value)} className="border-[1px] border-[#dddddd] focus:outline-none p-2 resize-none" name="" id="" cols="30" rows="5"></textarea>
           </div>
-          <button onClick={sendMessage} className="text-white font bold py-2 px-8 bg-[#6e7051] hover:bg-[#212529] duration-300">SEND MESSAGE</button>
+          <button onClick={sendMessage} className="text-white font bold py-2 px-8 bg-lightGreen hover:bg-blackColor duration-200">SEND MESSAGE</button>
         </div>
       </div>
       <div className="container mx-auto px-6 md:px-16 py-12 bg-white">
-        <h1 className="text-center text-[#212529] font-semibold text-3xl md:text-4xl xl:text-5xl mb-6 lg:w-[70%] lg:mx-auto">Frequently Asked Questions</h1>
+        <h1 className="text-center text-lightGreen font-semibold text-3xl md:text-4xl xl:text-5xl mb-6 lg:w-[70%] lg:mx-auto">Frequently Asked Questions</h1>
         <p className="text-[#979a9b] md:text-lg text-center pb-10 border-b-[1px] border-[#dddddd] mb-6 lg:w-[70%] lg:mx-auto">Purus amet scelerisque nisl nibh felis massa a enim gravida</p>
         <div className="lg:w-[70%] lg:mx-auto">
           <Accordion className="group">

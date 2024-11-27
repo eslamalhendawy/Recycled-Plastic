@@ -19,7 +19,7 @@ function Collection() {
   const [numberOfPages, setNumberOfPages] = useState();
 
   useEffect(() => {
-    document.title = `Clothy | Collection`;
+    document.title = `Another Chance | Search`;
     window.scrollTo(0, 0);
   }, []);
 
@@ -55,43 +55,43 @@ function Collection() {
 
   const [fetching, setFetching] = useState(true);
 
-  const select = useRef(null);
+  // const select = useRef(null);
 
-  useEffect(() => {
-    let sortingOrder = select.current.value;
-    let tempArray = [...products];
-    if (sortingOrder === "lth") {
-      tempArray.sort((a, b) => parseFloat(a.inventory.price) - parseFloat(b.inventory.price));
-    } else {
-      tempArray.sort((a, b) => parseFloat(b.inventory.price) - parseFloat(a.inventory.price));
-    }
-    setProducts(tempArray);
-  }, []);
+  // useEffect(() => {
+  //   let sortingOrder = select.current.value;
+  //   let tempArray = [...products];
+  //   if (sortingOrder === "lth") {
+  //     tempArray.sort((a, b) => parseFloat(a.inventory.price) - parseFloat(b.inventory.price));
+  //   } else {
+  //     tempArray.sort((a, b) => parseFloat(b.inventory.price) - parseFloat(a.inventory.price));
+  //   }
+  //   setProducts(tempArray);
+  // }, []);
 
-  const handleSort = (e) => {
-    let sortingOrder = e.target.value;
-    let tempArray = [...products];
-    if (sortingOrder === "lth") {
-      tempArray.sort((a, b) => parseFloat(a.inventory.price) - parseFloat(b.inventory.price));
-    } else {
-      tempArray.sort((a, b) => parseFloat(b.inventory.price) - parseFloat(a.inventory.price));
-    }
-    setProducts(tempArray);
-  };
+  // const handleSort = (e) => {
+  //   let sortingOrder = e.target.value;
+  //   let tempArray = [...products];
+  //   if (sortingOrder === "lth") {
+  //     tempArray.sort((a, b) => parseFloat(a.inventory.price) - parseFloat(b.inventory.price));
+  //   } else {
+  //     tempArray.sort((a, b) => parseFloat(b.inventory.price) - parseFloat(a.inventory.price));
+  //   }
+  //   setProducts(tempArray);
+  // };
 
   return (
     <>
       <Search />
       <div className="bg-[#f1f1ef] pb-6 px-3 md:px-8 md:pb-12">
         <div className="bg-white p-8">
-          <h2 className="text-[#6e7051] text-3xl sm:text-4xl font-bold mb-6">Products</h2>
+          <h2 className="text-lightGreen text-3xl sm:text-4xl font-bold mb-6">Products</h2>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:items-center sm:justify-between mb-8">
             <span className="text-[#979a9b] lg:text-xl">Showing {products.length} results</span>
-            <select ref={select} onChange={handleSort} name="Sort Products" id="" className="border-2 border-[#e6e6e6] py-2 text-[#666] focus:outline-none sm:w-[300px]">
+            {/* <select ref={select} onChange={handleSort} name="Sort Products" id="" className="border-2 border-[#e6e6e6] py-2 text-[#666] focus:outline-none sm:w-[300px]">
               <option defaultValue={true}>Default</option>
               <option value="lth">Price Low To High</option>
               <option value="htl">Price High To Low</option>
-            </select>
+            </select> */}
           </div>
           {fetching ? (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import { Link, useNavigate } from "react-router-dom";
 
 import "react-toastify/dist/ReactToastify.css";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import DispatchContext from "../DispatchContext";
 import axios from "axios";
 
@@ -20,6 +20,12 @@ function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeat, setRepeat] = useState("");
+
+  useEffect(() => {
+    document.title = `Another Chance | Sign Up`;
+    window.scrollTo(0, 0);
+  }, []);
+
   const attemptSignup = () => {
     if (first_name === "") {
       toast.error("Enter First Name");
@@ -91,46 +97,46 @@ function Signup() {
     <div className="bg-bgColor">
       <div className="container mx-auto flex justify-center items-center h-[120vh] sm:h-screen px-8 py-12 md:pt-0 sm:p-0 ">
         <div className="py-6 px-10 shadow-md rounded-xl bg-white">
-          <h2 className="text-center font-bold text-2xl sm:text-3xl mb-4 text-[#212529]">Sign Up</h2>
+          <h2 className="text-center font-bold text-2xl sm:text-3xl mb-4 text-lightGreen">Sign Up</h2>
           <div className="flex flex-col sm:flex-row sm:space-x-6">
             <div className="flex flex-col space-y-2 mb-5 md:w-[300px]">
-              <span className="sm:text-lg font-semibold text-[#212529]">First Name</span>
+              <span className="sm:text-lg font-semibold text-lightGreen">First Name</span>
               <input className="bg-white border-b-2 border-[#e6e6e6] focus:placeholder-transparent placeholder:duration-300 focus:outline-none" placeholder="Enter First Name" type="text" onChange={(e) => setFirst(e.target.value)} />
             </div>
             <div className="flex flex-col space-y-2 mb-5 md:w-[300px]">
-              <span className="sm:text-lg font-semibold text-[#212529]">Last Name</span>
+              <span className="sm:text-lg font-semibold text-lightGreen">Last Name</span>
               <input className="bg-white border-b-2 border-[#e6e6e6] focus:placeholder-transparent placeholder:duration-300 focus:outline-none" placeholder="Enter Last Name" type="text" onChange={(e) => setLast(e.target.value)} />
             </div>
           </div>
           <div className="flex flex-col sm:flex-row sm:space-x-6">
             <div className="flex flex-col space-y-2 mb-5 md:w-[300px]">
-              <span className="sm:text-lg font-semibold text-[#212529]">Email</span>
+              <span className="sm:text-lg font-semibold text-lightGreen">Email</span>
               <input className="bg-white border-b-2 border-[#e6e6e6] focus:placeholder-transparent placeholder:duration-300 focus:outline-none" placeholder="Enter Email" type="text" onChange={(e) => setEmail(e.target.value)} />
             </div>
             <div className="flex flex-col space-y-2 mb-5 md:w-[300px]">
-              <span className="sm:text-lg font-semibold text-[#212529]">Phone Number</span>
+              <span className="sm:text-lg font-semibold text-lightGreen">Phone Number</span>
               <input className="bg-white border-b-2 border-[#e6e6e6] focus:placeholder-transparent placeholder:duration-300 focus:outline-none" placeholder="Enter Phone Number" type="text" onChange={(e) => setPhone(e.target.value)} />
             </div>
           </div>
           <div className="flex flex-col sm:flex-row sm:space-x-6">
             <div className="flex flex-col space-y-2 mb-4 md:w-[300px]">
-              <span className="sm:text-lg font-semibold text-[#212529]">Password</span>
+              <span className="sm:text-lg font-semibold text-lightGreen">Password</span>
               <input className="bg-white border-b-2 border-[#e6e6e6] focus:placeholder-transparent placeholder:duration-300 focus:outline-none" placeholder="Enter Password" type="Password" onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div className="flex flex-col space-y-2 mb-5 md:w-[300px]">
-              <span className="sm:text-lg font-semibold text-[#212529]">Repeat Password</span>
+              <span className="sm:text-lg font-semibold text-lightGreen">Repeat Password</span>
               <input className="bg-white border-b-2 border-[#e6e6e6] focus:placeholder-transparent placeholder:duration-300 focus:outline-none" placeholder="Enter Password" type="Password" onChange={(e) => setRepeat(e.target.value)} />
             </div>
           </div>
 
           <div className="text-center mb-5 sm:mb-10">
-            <button onClick={attemptSignup} className="bg-[#212529] hover:bg-[#1c1f23] duration-300 text-white text-sm sm:text-lg py-3 px-16 rounded-xl inline-block">
+            <button onClick={attemptSignup} className="bg-lightGreen hover:bg-blackColor duration-200 text-white text-sm sm:text-lg py-3 px-16 rounded-xl inline-block">
               Sign Up
             </button>
           </div>
           <p className="text-[#212529] text-sm sm:text-base text-center">Already have and account ?</p>
           <Link to="/login">
-            <p className="text-center text-lg sm:text-2xl font-bold cursor-pointer text-[#212529] hover:text-[#1c1f23] duration-300">Login</p>
+            <p className="text-center text-lg sm:text-2xl font-bold cursor-pointer text-lightGreen hover:text-blackColor duration-200">Login</p>
           </Link>
         </div>
       </div>

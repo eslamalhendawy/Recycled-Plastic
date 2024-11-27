@@ -21,7 +21,7 @@ function Testimonials() {
   ];
   return (
     <div className="bg-white container mx-auto px-6 py-12">
-      <h2 className="text-center text-3xl font-semibold mb-12">Our Customers speak for us</h2>
+      <h2 className="text-center text-3xl font-semibold mb-12 text-lightGreen">Our Customers speak for us</h2>
       <div className="flex flex-col space-y-8 md:flex-row md:space-y-0 md:space-x-8">
         {cardsInfo.map((card) => {
           return (

@@ -53,7 +53,7 @@ function CartPage() {
       <div className="bg-[#f1f1ef] py-6 px-3 md:px-8 xl:px-40 2xl:px-80 md:py-12">
         <div className="bg-white px-8 py-20">
           <div className="container mx-auto px-6">
-            <h1 className="text-center text-[#212529] font-semibold text-5xl xl:text-6xl mb-6">Cart</h1>
+            <h1 className="text-center text-lightGreen font-semibold text-5xl xl:text-6xl mb-6">Cart</h1>
           </div>
           <div className="flex flex-col space-y-8 lg:space-y-0 lg:flex-row lg:justify-between lg:space-x-8">
             <div className="grow border-[1px] border-[#e6e6e6]">
@@ -92,16 +92,16 @@ function CartPage() {
                         <div className="mb-3 sm:mb-0">
                           <img className="w-[75px]" src={product.product.main_image} alt="" />
                         </div>
-                        <p className="text-[#212529] text-sm sm:text-base">{product.product.name}</p>
+                        <p className="text-blackColor text-sm sm:text-base">{product.product.name}</p>
                       </div>
                       <div className="text-center lg:w-[100px]">
-                        <p className="text-[#212529] text-sm sm:text-base">Price: ${product.product.inventory.price}</p>
+                        <p className="text-blackColor text-sm sm:text-base">Price: ${product.product.inventory.price}</p>
                       </div>
                       <div className="text-center lg:w-[100px]">
-                        <p className="text-[#212529] text-sm sm:text-base">Quantity: {product.quantity}</p>
+                        <p className="text-blackColor text-sm sm:text-base">Quantity: {product.quantity}</p>
                       </div>
                       <div className="text-center lg:w-[120px]">
-                        <p className="text-[#212529] text-sm sm:text-base">Subtotal: ${product.product.inventory.price * product.quantity}</p>
+                        <p className="text-blackColor text-sm sm:text-base">Subtotal: ${product.product.inventory.price * product.quantity}</p>
                       </div>
                     </div>
                   );
@@ -129,7 +129,7 @@ function CartPage() {
                   </>
                 )}
               </div>
-              <Link to="/checkout" className="bg-[#6e7051] hover:bg-[#212529] font-semibold text-center text-white duration-300 px-6 py-4">
+              <Link to="/checkout" className="bg-lightGreen hover:bg-blackColor font-semibold text-center text-white duration-200 px-6 py-4">
                 Proceed To Checkout
               </Link>
             </div>

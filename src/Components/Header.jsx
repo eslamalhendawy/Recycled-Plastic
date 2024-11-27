@@ -11,7 +11,7 @@ function Header() {
       <SideMenu />
       <div className="flex items-center">
         <Link to="/">
-          <h1 className="text-3xl font-semibold lg:mr-10 text-blackColor">Recycled Plastic</h1>
+          <h1 className="text-3xl font-semibold lg:mr-10 text-lightGreen">Another Chance</h1>
         </Link>
 
         <ul className="lg:flex space-x-6 text-lightGrey hidden">

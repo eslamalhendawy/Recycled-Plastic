@@ -154,12 +154,12 @@ function Profile() {
     <>
       <div className="px-0 md:px-6 py-12 bg-cover bg-center bg-[#f1f1ef]">
         <div className="container mx-auto bg-white px-6 py-12">
-          <h1 className="text-[#212529] text-3xl font-bold mb-2">Profile</h1>
+          <h1 className="text-lightGreen   text-3xl font-bold mb-2">Profile</h1>
           <p className="mb-6 text-[#979a9b] text-lg">Manage Your Details And Change Your Password</p>
           <h3 className="text-xl font-semibold mb-3">General Info</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-6 border-b-[1px] border-[#dddddd] pb-3">
             <div>
-              <p className="font-bold mb-2">First Name</p>
+              <p className="font-bold mb-2 text-lightGreen">First Name</p>
               <input
                 className="p-2 block w-full lg:w-[70%]  focus:outline-none placeholder:text-[#212529] border-[1px] border-[#dddddd]"
                 type="text"
@@ -171,7 +171,7 @@ function Profile() {
               />
             </div>
             <div>
-              <p className="font-bold mb-2">Last Name</p>
+              <p className="font-bold mb-2 text-lightGreen">Last Name</p>
               <input
                 className="p-2 block w-full lg:w-[70%] focus:outline-none placeholder:text-[#212529] border-[1px] border-[#dddddd]"
                 type="text"
@@ -191,7 +191,7 @@ function Profile() {
           <h3 className="text-xl font-semibold mb-3">Security</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-6 border-b-[1px] border-[#dddddd] pb-3">
             <div>
-              <p className="font-bold mb-2">Email</p>
+              <p className="font-bold mb-2 text-lightGreen">Email</p>
               <input
                 className="p-2 block w-full focus:outline-none placeholder:text-[#212529] border-[1px] border-[#dddddd]"
                 type="text"
@@ -203,7 +203,7 @@ function Profile() {
               />
             </div>
             <div>
-              <p className="font-bold mb-2">Phone Number</p>
+              <p className="font-bold mb-2 text-lightGreen">Phone Number</p>
               <input
                 className="p-2 block w-full focus:outline-none placeholder:text-[#212529] border-[1px] border-[#dddddd]"
                 type="text"
@@ -215,7 +215,7 @@ function Profile() {
               />
             </div>
             <div>
-              <p className="font-bold mb-2">Password</p>
+              <p className="font-bold mb-2 text-lightGreen">Password</p>
               <input
                 className="p-2 block w-full focus:outline-none placeholder:text-[#212529] border-[1px] border-[#dddddd]"
                 type="password"
@@ -232,7 +232,7 @@ function Profile() {
               </button>
             </div>
           </div>
-          <h1 className="text-[#212529] text-3xl font-bold mb-2">Orders</h1>
+          <h1 className="text-lightGreen text-3xl font-bold mb-2">Orders</h1>
           <p className="mb-6 text-[#979a9b] text-lg">View Your Order History</p>
           {orders == null ? (
             <p className="mb-6 font-semibold text-lg">Loading...</p>
