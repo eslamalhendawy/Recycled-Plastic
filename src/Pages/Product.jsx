@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import StateContext from "../StateContext";
 import Skeleton from "@mui/material/Skeleton";
-import Search from "./Search";
-import Related from "./Related";
-import Features from "./Features";
-import FeaturesSmall from "./FeaturesSmall";
-import Footer from "./Footer";
+import Search from "../Components/Search";
+import Related from "../Components/Related";
+import Features from "../Components/Features";
+import FeaturesSmall from "../Components/FeaturesSmall";
+import Footer from "../Components/Footer";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";

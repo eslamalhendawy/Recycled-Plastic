@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import Skeleton from "@mui/material/Skeleton";
-import Search from "./Search";
-import Features from "./Features";
-import FeaturesSmall from "./FeaturesSmall";
-import Footer from "./Footer";
-import ProductsGrid from "./ProductsGrid";
+import Search from "../Components/Search";
+import Features from "../Components/Features";
+import FeaturesSmall from "../Components/FeaturesSmall";
+import Footer from "../Components/Footer";
+import ProductsGrid from "../Components/ProductsGrid";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 

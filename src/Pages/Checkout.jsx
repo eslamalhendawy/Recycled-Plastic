@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import FeaturesSmall from "./FeaturesSmall";
-import Footer from "./Footer";
+import FeaturesSmall from "../Components/FeaturesSmall";
+import Footer from "../Components/Footer";
 import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";

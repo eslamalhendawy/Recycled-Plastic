@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
-import Features from "./Features";
-import FeaturesSmall from "./FeaturesSmall";
-import Footer from "./Footer";
+import Features from "../Components/Features";
+import FeaturesSmall from "../Components/FeaturesSmall";
+import Footer from "../Components/Footer";
 
 function CartPage() {
   const navigate = useNavigate();

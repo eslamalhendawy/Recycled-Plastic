@@ -1,17 +1,17 @@
 import { useEffect } from "react";
 // import { Link } from "react-router-dom";
-import Search from "./Search";
-import HeroSection from "./HeroSection";
-import Sponsors from "./Sponsors";
-import Info from "./Info";
-import HowMade from "./HowMade";
-import BestSellers from "./BestSellers";
-import NewArrivals from "./NewArrivals";
-import Recycle from "./Recycle";
-import Testimonials from "./Testimonials";
-import Features from "./Features";
-import FeaturesSmall from "./FeaturesSmall";
-import Footer from "./Footer";
+import Search from "../Components/Search";
+import HeroSection from "../Components/HeroSection";
+import Sponsors from "../Components/Sponsors";
+import Info from "../Components/Info";
+import HowMade from "../Components/HowMade";
+import BestSellers from "../Components/BestSellers";
+import NewArrivals from "../Components/NewArrivals";
+import Recycle from "../Components/Recycle";
+import Testimonials from "../Components/Testimonials";
+import Features from "../Components/Features";
+import FeaturesSmall from "../Components/FeaturesSmall";
+import Footer from "../Components/Footer";
 
 function Homepage() {
   useEffect(() => {
@@ -25,7 +25,7 @@ function Homepage() {
       <HeroSection />
       <Sponsors />
       <Info />
-      <HowMade bg={"#f1f1ef"}/>
+      <HowMade bg={"#f1f1ef"} />
       <BestSellers />
       {/* <div className="md:flex xl:space-x-10 xl:p-10">
         <div className="md:flex-1 bg-cover bg-center flex flex-col space-y-3 justify-center items-center px-12 py-20 xl:py-[100px]" style={{ backgroundImage: "url(/images/recycled-shoe-store-shop-men-image-thumbnail.jpg)" }}>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import Search from "./Search";
-import Features from "./Features";
-import FeaturesSmall from "./FeaturesSmall";
-import Footer from "./Footer";
+import Search from "../Components/Search";
+import Features from "../Components/Features";
+import FeaturesSmall from "../Components/FeaturesSmall";
+import Footer from "../Components/Footer";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";

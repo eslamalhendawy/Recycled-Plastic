@@ -6,22 +6,22 @@ import StateContext from "./StateContext";
 import DispatchContext from "./DispatchContext";
 
 import Header from "./Components/Header";
-import Homepage from "./Components/HomePage";
-import Login from "./Components/Login";
-import Signup from "./Components/Signup";
-import ResetPassword from "./Components/ResetPassword";
-import ResetCode from "./Components/ResetCode";
-import NewPassword from "./Components/NewPassword";
-import Collection from "./Components/Collection";
+import Homepage from "./Pages/HomePage";
+import Login from "./Pages/Login";
+import Signup from "./Pages/Signup";
+import ResetPassword from "./Pages/ResetPassword";
+import ResetCode from "./Pages/ResetCode";
+import NewPassword from "./Pages/NewPassword";
+import Collection from "./Pages/Collection";
 // import Lookbook from "./Components/Lookbook";
 // import OurStory from "./Components/OurStory";
-import Contact from "./Components/Contact";
+import Contact from "./Pages/Contact";
 // import Sale from "./Components/Sale";
-import Product from "./Components/Product";
-import Profile from "./Components/Profile";
-import SearchResults from "./Components/SearchResults";
-import CartPage from "./Components/CartPage";
-import Checkout from "./Components/Checkout";
+import Product from "./Pages/Product";
+import Profile from "./Pages/Profile";
+import SearchResults from "./Pages/SearchResults";
+import CartPage from "./Pages/CartPage";
+import Checkout from "./Pages/Checkout";
 
 import "./App.css";
 
