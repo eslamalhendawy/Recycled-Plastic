@@ -39,7 +39,11 @@ function Login() {
     const response = await postData("/users/signin", { email, password });
     if (response.authorization_token) {
       localStorage.setItem("token", response.authorization_token);
-      setUserData({ loggedIn: true, firstName: response.first_name, lastName: response.last_name, phoneNumber: response.phone_number, email: response.email, id: response.id });
+      localStorage.setItem("firstName", response.first_name);
+      localStorage.setItem("lastName", response.last_name);
+      localStorage.setItem("phoneNumber", response.phone_number);
+      localStorage.setItem("email", response.email);
+      setUserData({ loggedIn: true, firstName: response.first_name, lastName: response.last_name, phoneNumber: response.phone_number, email: response.email });
       navigate("/");
       toast.success("Login Successful");
     } else {

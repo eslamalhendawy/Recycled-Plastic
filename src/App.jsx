@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+import { useAppContext } from "./Context/AppContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
+import { postData } from "./Services/apiCalls";
 
 import Header from "./Components/Header";
 import Homepage from "./Pages/HomePage";
@@ -20,7 +22,13 @@ import Checkout from "./Pages/Checkout";
 import "./App.css";
 
 function App() {
-  
+  const { setUserData } = useAppContext();
+
+  useEffect(() => {
+    if(localStorage.getItem("token")) {
+      setUserData({loggedIn: true, firstName: localStorage.getItem("firstName"), lastName: localStorage.getItem("lastName"), phoneNumber: localStorage.getItem("phoneNumber"), email: localStorage.getItem("email"), id: localStorage.getItem("id")});
+    }
+  }, []);
 
   return (
     <Router>

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useAppContext } from "../Context/AppContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Footer from "../Components/Footer";
@@ -7,6 +8,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Profile() {
+  const {setUserData} = useAppContext();
   useEffect(() => {
     document.title = `Another Chance | Profile`;
     window.scrollTo(0, 0);
@@ -52,11 +54,8 @@ function Profile() {
   const [update2, setUpdate2] = useState(false);
 
   const logout = () => {
-    localStorage.removeItem("firstName");
-    localStorage.removeItem("lastName");
-    localStorage.removeItem("email");
-    localStorage.removeItem("phoneNumber");
-    localStorage.removeItem("userToken");
+    localStorage.clear()
+    setUserData({loggedIn: false});
     toast.info("Logout Out Successful");
     navigate("/");
   };

@@ -8,7 +8,6 @@ export const AppProvider = ({ children }) => {
     lastName: "",
     phoneNumber: "",
     email: "",
-    id: "",
     loggedIn: false,
   });
   return <AppContext.Provider value={{ userData, setUserData }}>{children}</AppContext.Provider>;
