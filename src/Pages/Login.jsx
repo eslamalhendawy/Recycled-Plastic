@@ -1,19 +1,20 @@
-import { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { toast } from "react-toastify";
+import { useState, useEffect } from "react";
+import { useAppContext } from "../Context/AppContext";
+
+import { postData } from "../Services/apiCalls";
+
 import { Link, useNavigate } from "react-router-dom";
-import DispatchContext from "../DispatchContext";
+import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
-  const appDispatch = useContext(DispatchContext);
-  const navigate = useNavigate();
-
-  const URL = "https://clothey-api.onrender.com/users/signin";
-  const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { setUserData } = useAppContext();
+  const navigate = useNavigate();
+
+  const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 
   useEffect(() => {
     document.title = `Another Chance | Login`;
@@ -34,24 +35,16 @@ function Login() {
       return;
     }
     toast.info("Attempting Login");
-    await axios
-      .post(URL, { email, password })
-      .then((res) => {
-        toast.success("Login Successful!");
-        localStorage.setItem("userToken", res.data.authorization_token);
-        localStorage.setItem("firstName", res.data.first_name);
-        localStorage.setItem("lastName", res.data.last_name);
-        localStorage.setItem("email", res.data.email);
-        localStorage.setItem("phoneNumber", res.data.phone_number);
-        appDispatch({
-          type: "login",
-        });
-        navigate(`/profile/${localStorage.getItem("firstName") + localStorage.getItem("lastName")}`);
-      })
-      .catch((e) => {
-        console.log(e);
-        toast.error("Incorrect Email Or Password");
-      });
+
+    const response = await postData("/users/signin", { email, password });
+    if (response.authorization_token) {
+      localStorage.setItem("token", response.authorization_token);
+      setUserData({ loggedIn: true, firstName: response.first_name, lastName: response.last_name, phoneNumber: response.phone_number, email: response.email, id: response.id });
+      navigate("/");
+      toast.success("Login Successful");
+    } else {
+      toast.error("Invalid Email or Password");
+    }
   };
 
   return (

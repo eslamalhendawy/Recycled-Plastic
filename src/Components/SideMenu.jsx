@@ -1,17 +1,19 @@
-import { useState, useContext } from "react";
-import StateContext from "../StateContext";
+import { useState } from "react";
+import { useAppContext } from "../Context/AppContext";
 import { Link } from "react-router-dom";
 import Drawer from "@mui/material/SwipeableDrawer";
 
 function Cart() {
-  const appState = useContext(StateContext);
   const [openMenu, setOpen] = useState(false);
+  const { userData } = useAppContext();
+
   const toggleMenu = (openStatus) => (event) => {
     if (event.type === "keydown" && (event.key === "Tab" || event.key === "Shift")) {
       return;
     }
     setOpen(openStatus);
   };
+
   return (
     <>
       <div className="block lg:hidden" onClick={toggleMenu(true)}>
@@ -23,7 +25,7 @@ function Cart() {
             <i className="fa-solid fa-x text-3xl "></i>
           </button>
           <ul className="text-lightGrey">
-            {appState.loggedIn ? (
+            {userData.loggedIn ? (
               <Link to={`/profile/${localStorage.getItem("firstName") + localStorage.getItem("lastName")}`} onClick={toggleMenu(false)}>
                 <li className="text-xl border-b-2 border-[#e6e6e6] px-8 py-4 hover:text-blackColor duration-300">
                   <i className="fa-solid fa-user lg:text-lg xl:text-3xl cursor-pointer"></i>

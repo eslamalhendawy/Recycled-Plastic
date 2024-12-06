@@ -1,32 +1,34 @@
-import { toast } from "react-toastify";
+import { useState, useEffect } from "react";
+import { useAppContext } from "../Context/AppContext";
+
+import { postData } from "../Services/apiCalls";
+
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
-import { useState, useContext, useEffect } from "react";
-import DispatchContext from "../DispatchContext";
-import axios from "axios";
 
 function Signup() {
-  const appDispatch = useContext(DispatchContext);
-  const navigate = useNavigate();
-  
-  const URL = "https://clothey-api.onrender.com/users/signup";
-  const regCharectars = /^[A-Za-z\s]*$/;
-  const regNumbers = /^[0-9]+$/;
-  const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
   const [first_name, setFirst] = useState("");
   const [last_name, setLast] = useState("");
   const [phone_number, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeat, setRepeat] = useState("");
+  const { setUserData } = useAppContext();
+
+  const navigate = useNavigate();
+
+  const regCharectars = /^[A-Za-z\s]*$/;
+  const regNumbers = /^[0-9]+$/;
+  const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
 
   useEffect(() => {
     document.title = `Another Chance | Sign Up`;
     window.scrollTo(0, 0);
   }, []);
 
-  const attemptSignup = () => {
+  const attemptSignup = async () => {
     if (first_name === "") {
       toast.error("Enter First Name");
       return;
@@ -76,22 +78,15 @@ function Signup() {
       return;
     }
     toast.info("Attempting Sign Up");
-    axios
-      .post(URL, { first_name, last_name, email, password, phone_number })
-      .then((res) => {
-        toast.success("Sign Up Successful!");
-        appDispatch({ type: "login" });
-        localStorage.setItem("email", res.data.email);
-        localStorage.setItem("firstName", res.data.first_name);
-        localStorage.setItem("lastName", res.data.last_name);
-        localStorage.setItem("phoneNumber", res.data.phone_number);
-        localStorage.setItem("userToken", res.data.authorization_token);
-        navigate(`/profile/${localStorage.getItem("firstName") + localStorage.getItem("lastName")}`);
-      })
-      .catch((e) => {
-        console.log(e);
-        toast.error("Error Occurred Please Try Again");
-      });
+    const response = await postData("/users/signup", { first_name, last_name, email, password, phone_number });
+    if (response.authorization_token) {
+      localStorage.setItem("token", response.authorization_token);
+      setUserData({ loggedIn: true, firstName: response.first_name, lastName: response.last_name, phoneNumber: response.phone_number, email: response.email, id: response.id });
+      navigate("/");
+      toast.success("Sign Up Successful");
+    }else {
+      toast.error("Error Signing Up Please Try Again");
+    }
   };
   return (
     <div className="bg-bgColor">

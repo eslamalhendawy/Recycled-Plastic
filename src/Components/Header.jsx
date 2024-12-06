@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import StateContext from "../StateContext";
+import { useAppContext } from "../Context/AppContext";
 import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import SideMenu from "./SideMenu";
 
 function Header() {
-  const appState = useContext(StateContext);
+  const { userData } = useAppContext();
   return (
     <div className="container mx-auto flex items-center justify-between p-6">
       <SideMenu />
@@ -40,7 +39,7 @@ function Header() {
           <p className="hover:text-[#212529] duration-300 font-semibold cursor-pointer hidden lg:block">CONTACT</p>
         </Link>
 
-        {appState.loggedIn ? (
+        {userData.loggedIn ? (
           <Link to={`/profile/${localStorage.getItem("firstName") + localStorage.getItem("lastName")}`}>
             <p className="hidden lg:block ">
               <i className="fa-solid fa-user text-[#212529] lg:text-lg xl:text-3xl cursor-pointer"></i>

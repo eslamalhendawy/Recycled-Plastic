@@ -4,9 +4,10 @@ const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [userData, setUserData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
+    phoneNumber: "",
     email: "",
-    role: "",
     id: "",
     loggedIn: false,
   });

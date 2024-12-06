@@ -1,13 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { useAppContext } from "../Context/AppContext";
 import { Link } from "react-router-dom";
-import StateContext from "../StateContext";
 import axios from "axios";
 import Drawer from "@mui/material/SwipeableDrawer";
 
 function Cart() {
-  const appState = useContext(StateContext);
   const [openCart, setOpen] = useState(false);
   const [cartItems, setCartItems] = useState(null);
+  const { userData } = useAppContext();
   const userToken = localStorage.getItem("userToken");
   const url = "https://clothey-api.onrender.com/carts/get-one";
   const removeURL = "https://clothey-api.onrender.com/carts/remove-from-cart?cart_item_id=";
@@ -56,7 +56,7 @@ function Cart() {
 
   return (
     <>
-      <p className={appState.loggedIn ? "block" : "hidden"} onClick={toggleCart(true)}>
+      <p className={userData.loggedIn ? "block" : "hidden"} onClick={toggleCart(true)}>
         <i className="fa-solid fa-bag-shopping text-[#212529] text-2xl lg:text-lg xl:text-3xl cursor-pointer"></i>
       </p>
       <Drawer anchor="right" open={openCart} onClose={toggleCart(false)} onOpen={toggleCart(true)}>

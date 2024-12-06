@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
+import { useAppContext } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import StateContext from "../StateContext";
 import Skeleton from "@mui/material/Skeleton";
 import Search from "../Components/Search";
 import Related from "../Components/Related";
@@ -12,11 +12,9 @@ import { toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
 
-
 function Product() {
-  const appState = useContext(StateContext);
   const navigate = useNavigate();
-
+  const { userData } = useAppContext();
   const URL = "https://clothey-api.onrender.com/products/get-one?id=";
   const orderURL = "https://clothey-api.onrender.com/carts/add-to-cart";
   const [fetching, setFetching] = useState(true);
@@ -41,7 +39,7 @@ function Product() {
     };
     fetchProduct();
   }, []);
-  
+
   const increase = () => {
     setCount(count + 1);
   };
@@ -54,27 +52,34 @@ function Product() {
   };
 
   const placeOrder = async () => {
-    if (!appState.loggedIn) {
+    if (!userData.loggedIn) {
       navigate("/login");
-      toast.info("Login To Add Items To Cart")
+      toast.info("Login To Add Items To Cart");
       return;
     }
-    if(count > product.inventory.qty_in_stock){
+    if (count > product.inventory.qty_in_stock) {
       toast.error(`Only ${product.inventory.qty_in_stock} left in stock`);
       return;
     }
     toast.info("Adding To Cart");
-    axios.post(orderURL, {product_id: product.id, quantity: count},{
-      headers: {
-        Authorization: userToken,
-      },
-    }).then(() => {
-      toast.success("Added To Cart Successfully");
-    }).catch((e) => {
-      toast.error("Failed Adding To Cart, Please Try Again");
-      console.log(e);
-    })
-  }
+    axios
+      .post(
+        orderURL,
+        { product_id: product.id, quantity: count },
+        {
+          headers: {
+            Authorization: userToken,
+          },
+        }
+      )
+      .then(() => {
+        toast.success("Added To Cart Successfully");
+      })
+      .catch((e) => {
+        toast.error("Failed Adding To Cart, Please Try Again");
+        console.log(e);
+      });
+  };
 
   return (
     <>
@@ -148,7 +153,9 @@ function Product() {
                     <button onClick={increase} className="text-[#979a9b] border-[1px] border-[#dddddd] text-lg w-[40px] h-[40px] block">
                       +
                     </button>
-                    <button onClick={placeOrder} className="bg-lightGreen hover:bg-blackColor font-semibold text-white duration-200 px-6 py-2 ml-8">ADD TO CART</button>
+                    <button onClick={placeOrder} className="bg-lightGreen hover:bg-blackColor font-semibold text-white duration-200 px-6 py-2 ml-8">
+                      ADD TO CART
+                    </button>
                   </div>
                 </div>
                 <p className="text-[#979a9b] lg:border-b-[1px] border-[#dddddd] pb-2 xl:text-lg">

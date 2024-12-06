@@ -1,7 +1,6 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import DispatchContext from "../DispatchContext";
 import Footer from "../Components/Footer";
 import { toast } from "react-toastify";
 
@@ -37,8 +36,6 @@ function Profile() {
     fetchOrders();
   }, []);
 
-
-  const appDispatch = useContext(DispatchContext);
   const navigate = useNavigate();
 
   const firstName = localStorage.getItem("firstName");
@@ -55,7 +52,6 @@ function Profile() {
   const [update2, setUpdate2] = useState(false);
 
   const logout = () => {
-    appDispatch({ type: "logout" });
     localStorage.removeItem("firstName");
     localStorage.removeItem("lastName");
     localStorage.removeItem("email");

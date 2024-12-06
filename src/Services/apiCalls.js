@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://anotherchance-production.up.railway.app/";
+const baseURL = "https://anotherchance-production.up.railway.app";
 
 
 export const postData = async (url, data, token) => {
