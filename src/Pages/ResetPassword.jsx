@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function ResetPassword() {
   const navigate = useNavigate();
-  const url = "https://clothey-api.onrender.com/users/send-reset-code";
+  const url = "https://anotherchance-production.up.railway.app/users/send-reset-code";
   const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
   const [email, setEmail] = useState("");
 

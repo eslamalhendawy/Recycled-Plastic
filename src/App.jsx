@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import { useAppContext } from "./Context/AppContext";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import { postData } from "./Services/apiCalls";
 
 import Header from "./Components/Header";
 import Homepage from "./Pages/HomePage";
@@ -25,8 +24,8 @@ function App() {
   const { setUserData } = useAppContext();
 
   useEffect(() => {
-    if(localStorage.getItem("token")) {
-      setUserData({loggedIn: true, firstName: localStorage.getItem("firstName"), lastName: localStorage.getItem("lastName"), phoneNumber: localStorage.getItem("phoneNumber"), email: localStorage.getItem("email"), id: localStorage.getItem("id")});
+    if (localStorage.getItem("token")) {
+      setUserData({ loggedIn: true, firstName: localStorage.getItem("firstName"), lastName: localStorage.getItem("lastName"), phoneNumber: localStorage.getItem("phoneNumber"), email: localStorage.getItem("email"), id: localStorage.getItem("id") });
     }
   }, []);
 
@@ -41,10 +40,7 @@ function App() {
         <Route path="reset-code" exact element={<ResetCode />} />
         <Route path="new-password" exact element={<NewPassword />} />
         <Route path="/collection/:type" exact element={<Collection />} />
-        {/* <Route path="/lookbook" exact element={<Lookbook />} /> */}
-        {/* <Route path="/our-story" exact element={<OurStory />} /> */}
         <Route path="/contact" exact element={<Contact />} />
-        {/* <Route path="/sale" exact element={<Sale />} /> */}
         <Route path="/product/:id" exact element={<Product />} />
         <Route path="/profile/:username" exact element={<Profile />} />
         <Route path="/search/:query" exact element={<SearchResults />} />

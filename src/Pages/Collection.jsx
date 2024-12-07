@@ -27,7 +27,7 @@ function Collection() {
     let decodedURL = decodeURIComponent(currentURL);
     let parts = decodedURL.split("/");
     const type = parts[parts.length - 1];
-    let URL = `https://clothey-api.onrender.com/products/filter?page=${pageNumber}&size=12`;
+    let URL = `https://anotherchance-production.up.railway.app/products/filter?page=${pageNumber}&size=12`;
     // if (type == "men") {
     //   URL = `https://clothey-api.onrender.com/products/filter?type_id=1&page=${pageNumber}&size=12`;
     //   document.title = `Clothy | Men's Collection`;

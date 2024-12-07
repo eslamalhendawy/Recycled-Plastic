@@ -8,16 +8,31 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Profile() {
-  const {setUserData} = useAppContext();
+  const firstName = localStorage.getItem("firstName");
+  const lastName = localStorage.getItem("lastName");
+  const email = localStorage.getItem("email");
+  const phoneNumber = localStorage.getItem("phoneNumber");
+  const userToken = localStorage.getItem("token");
+  const [first, setFirst] = useState("");
+  const [last, setLast] = useState("");
+  const [mail, setMail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [update1, setUpdate1] = useState(false);
+  const [update2, setUpdate2] = useState(false);
+  const [orders, setOrders] = useState(null);
+  const { setUserData } = useAppContext();
+
+
+  const url = "https://anotherchance-production.up.railway.app/users/update";
+  const orderURL = "https://anotherchance-production.up.railway.app/orders/my-orders";
+  const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
+  const regNumbers = /^[0-9]+$/;
+  
   useEffect(() => {
     document.title = `Another Chance | Profile`;
     window.scrollTo(0, 0);
   }, []);
-  const regEmail = /^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/;
-  const regNumbers = /^[0-9]+$/;
-  const url = "https://clothey-api.onrender.com/users/update";
-  const orderURL = "https://clothey-api.onrender.com/orders/my-orders";
-  const [orders, setOrders] = useState(null);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -28,7 +43,6 @@ function Profile() {
           },
         })
         .then((res) => {
-          console.log(res);
           setOrders(res.data);
         })
         .catch((e) => {
@@ -40,22 +54,9 @@ function Profile() {
 
   const navigate = useNavigate();
 
-  const firstName = localStorage.getItem("firstName");
-  const lastName = localStorage.getItem("lastName");
-  const email = localStorage.getItem("email");
-  const phoneNumber = localStorage.getItem("phoneNumber");
-  const userToken = localStorage.getItem("userToken");
-  const [first, setFirst] = useState("");
-  const [last, setLast] = useState("");
-  const [mail, setMail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [update1, setUpdate1] = useState(false);
-  const [update2, setUpdate2] = useState(false);
-
   const logout = () => {
-    localStorage.clear()
-    setUserData({loggedIn: false});
+    localStorage.clear();
+    setUserData({ loggedIn: false });
     toast.info("Logout Out Successful");
     navigate("/");
   };

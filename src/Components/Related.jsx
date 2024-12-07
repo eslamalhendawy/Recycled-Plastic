@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function Related({ relatedID }) {
   const [related, setRelated] = useState([]);
-  const relatedURL = "https://clothey-api.onrender.com/products/filter?size=6&category_id=";
+  const relatedURL = "https://anotherchance-production.up.railway.app/products/filter?size=6&category_id=";
 
   useEffect(() => {
     const fetchRelated = async () => {

@@ -15,10 +15,10 @@ import "react-toastify/dist/ReactToastify.css";
 function Product() {
   const navigate = useNavigate();
   const { userData } = useAppContext();
-  const URL = "https://clothey-api.onrender.com/products/get-one?id=";
-  const orderURL = "https://clothey-api.onrender.com/carts/add-to-cart";
+  const URL = "https://anotherchance-production.up.railway.app/products/get-one?id=";
+  const orderURL = "https://anotherchance-production.up.railway.app/carts/add-to-cart";
   const [fetching, setFetching] = useState(true);
-  const userToken = localStorage.getItem("userToken");
+  const userToken = localStorage.getItem("token");
   const [product, setProduct] = useState({});
   const [count, setCount] = useState(1);
 

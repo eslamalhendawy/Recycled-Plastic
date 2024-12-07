@@ -9,8 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 function Checkout() {
   const navigate = useNavigate();
-  const userToken = localStorage.getItem("userToken");
-  const url = "https://clothey-api.onrender.com/orders/place-order";
+  const userToken = localStorage.getItem("token");
+  const url = "https://anotherchance-production.up.railway.app/orders/place-order";
   const regNumbers = /^[0-9]+$/;
   const governates = [
     {
@@ -148,7 +148,6 @@ function Checkout() {
   };
 
   const placeOrder = async () => {
-    console.log(governate);
     if (governate === "") {
       toast.error("Choose Governorate");
       return;
@@ -166,7 +165,7 @@ function Checkout() {
       return;
     }
     if (!regNumbers.test(building_number)) {
-      toast.error("Enter Correct Buildng Number");
+      toast.error("Enter Correct Building Number");
       return;
     }
     toast.info("Confirming Order");

@@ -8,10 +8,8 @@ import FeaturesSmall from "../Components/FeaturesSmall";
 import Footer from "../Components/Footer";
 
 function CartPage() {
-  const navigate = useNavigate();
-  const userToken = localStorage.getItem("userToken");
-  let url = "https://clothey-api.onrender.com/carts/get-one";
-  const removeURL = "https://clothey-api.onrender.com/carts/remove-from-cart?cart_item_id=";
+  const userToken = localStorage.getItem("token");
+  let url = "https://anotherchance-production.up.railway.app/carts/get-one";
   const [products, setProducts] = useState([]);
   const [fetching, setFetching] = useState(true);
   const [totalPrice, setTotalPrice] = useState(0);
